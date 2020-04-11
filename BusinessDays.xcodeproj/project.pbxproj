@@ -16,7 +16,7 @@
 		352C0A2E2441466200890A29 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A2D2441466200890A29 /* README.md */; };
 		352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A302441468F00890A29 /* BusinessDaysViewController.swift */; };
 		352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A33244147E400890A29 /* BusinessDaysService.swift */; };
-		352C0A3624414E4C00890A29 /* BDYTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A3524414E4C00890A29 /* BDYTextField.swift */; };
+		352C0A3624414E4C00890A29 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A3524414E4C00890A29 /* DateTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		352C0A2D2441466200890A29 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		352C0A302441468F00890A29 /* BusinessDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewController.swift; sourceTree = "<group>"; };
 		352C0A33244147E400890A29 /* BusinessDaysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysService.swift; sourceTree = "<group>"; };
-		352C0A3524414E4C00890A29 /* BDYTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDYTextField.swift; sourceTree = "<group>"; };
+		352C0A3524414E4C00890A29 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +82,7 @@
 		352C0A3724414E5E00890A29 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				352C0A3524414E4C00890A29 /* BDYTextField.swift */,
+				352C0A3524414E4C00890A29 /* DateTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,7 +170,7 @@
 			files = (
 				352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */,
 				352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */,
-				352C0A3624414E4C00890A29 /* BDYTextField.swift in Sources */,
+				352C0A3624414E4C00890A29 /* DateTextField.swift in Sources */,
 				352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */,
 				352C0A1A244145FC00890A29 /* SceneDelegate.swift in Sources */,
 			);
