@@ -15,6 +15,7 @@
 		352C0A2C2441463100890A29 /* home assigment for iOS dev (1).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A2B2441463000890A29 /* home assigment for iOS dev (1).pdf */; };
 		352C0A2E2441466200890A29 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A2D2441466200890A29 /* README.md */; };
 		352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A302441468F00890A29 /* BusinessDaysViewController.swift */; };
+		352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A33244147E400890A29 /* BusinessDaysService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		352C0A2B2441463000890A29 /* home assigment for iOS dev (1).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "home assigment for iOS dev (1).pdf"; sourceTree = "<group>"; };
 		352C0A2D2441466200890A29 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		352C0A302441468F00890A29 /* BusinessDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewController.swift; sourceTree = "<group>"; };
+		352C0A33244147E400890A29 /* BusinessDaysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				352C0A17244145FC00890A29 /* AppDelegate.swift */,
 				352C0A19244145FC00890A29 /* SceneDelegate.swift */,
 				352C0A302441468F00890A29 /* BusinessDaysViewController.swift */,
+				352C0A33244147E400890A29 /* BusinessDaysService.swift */,
 				352C0A1D244145FC00890A29 /* Main.storyboard */,
 				352C0A20244145FD00890A29 /* Assets.xcassets */,
 				352C0A22244145FD00890A29 /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 			files = (
 				352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */,
 				352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */,
+				352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */,
 				352C0A1A244145FC00890A29 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
