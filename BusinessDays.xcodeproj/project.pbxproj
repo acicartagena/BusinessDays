@@ -17,6 +17,7 @@
 		352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A302441468F00890A29 /* BusinessDaysViewController.swift */; };
 		352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A33244147E400890A29 /* BusinessDaysService.swift */; };
 		352C0A3624414E4C00890A29 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A3524414E4C00890A29 /* DateTextField.swift */; };
+		352C0A3A24417BD200890A29 /* WeekdaysAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A3924417BD200890A29 /* WeekdaysAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		352C0A302441468F00890A29 /* BusinessDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewController.swift; sourceTree = "<group>"; };
 		352C0A33244147E400890A29 /* BusinessDaysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysService.swift; sourceTree = "<group>"; };
 		352C0A3524414E4C00890A29 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
+		352C0A3924417BD200890A29 /* WeekdaysAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			children = (
 				352C0A17244145FC00890A29 /* AppDelegate.swift */,
 				352C0A19244145FC00890A29 /* SceneDelegate.swift */,
+				352C0A3924417BD200890A29 /* WeekdaysAPI.swift */,
 				352C0A3724414E5E00890A29 /* Views */,
 				352C0A3824414E6600890A29 /* Services */,
 				352C0A302441468F00890A29 /* BusinessDaysViewController.swift */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */,
+				352C0A3A24417BD200890A29 /* WeekdaysAPI.swift in Sources */,
 				352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */,
 				352C0A3624414E4C00890A29 /* DateTextField.swift in Sources */,
 				352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */,
