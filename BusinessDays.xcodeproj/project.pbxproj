@@ -16,6 +16,7 @@
 		352C0A2E2441466200890A29 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A2D2441466200890A29 /* README.md */; };
 		352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A302441468F00890A29 /* BusinessDaysViewController.swift */; };
 		352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A33244147E400890A29 /* BusinessDaysService.swift */; };
+		352C0A3624414E4C00890A29 /* BDYTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A3524414E4C00890A29 /* BDYTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		352C0A2D2441466200890A29 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		352C0A302441468F00890A29 /* BusinessDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewController.swift; sourceTree = "<group>"; };
 		352C0A33244147E400890A29 /* BusinessDaysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysService.swift; sourceTree = "<group>"; };
+		352C0A3524414E4C00890A29 /* BDYTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDYTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +68,31 @@
 			children = (
 				352C0A17244145FC00890A29 /* AppDelegate.swift */,
 				352C0A19244145FC00890A29 /* SceneDelegate.swift */,
+				352C0A3724414E5E00890A29 /* Views */,
+				352C0A3824414E6600890A29 /* Services */,
 				352C0A302441468F00890A29 /* BusinessDaysViewController.swift */,
-				352C0A33244147E400890A29 /* BusinessDaysService.swift */,
 				352C0A1D244145FC00890A29 /* Main.storyboard */,
 				352C0A20244145FD00890A29 /* Assets.xcassets */,
 				352C0A22244145FD00890A29 /* LaunchScreen.storyboard */,
 				352C0A25244145FD00890A29 /* Info.plist */,
 			);
 			path = BusinessDays;
+			sourceTree = "<group>";
+		};
+		352C0A3724414E5E00890A29 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				352C0A3524414E4C00890A29 /* BDYTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		352C0A3824414E6600890A29 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				352C0A33244147E400890A29 /* BusinessDaysService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +170,7 @@
 			files = (
 				352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */,
 				352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */,
+				352C0A3624414E4C00890A29 /* BDYTextField.swift in Sources */,
 				352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */,
 				352C0A1A244145FC00890A29 /* SceneDelegate.swift in Sources */,
 			);
