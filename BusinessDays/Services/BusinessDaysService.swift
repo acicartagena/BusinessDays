@@ -13,11 +13,24 @@ enum BusinessDaysError: Error {
 }
 
 protocol BusinessDaysActions {
-    func businessDaysCount(from: Date, to: Date, completion: (Result<Int, BusinessDaysError>) -> Void)
+    func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void)
 }
 
 class BusinessDaysService: BusinessDaysActions {
-    func businessDaysCount(from: Date, to: Date, completion: (Result<Int, BusinessDaysError>) -> Void) {
-        completion(.success(5))
+
+    let weekdaysAPI: WeekdaysAPI
+
+    init(weekdaysAPI: WeekdaysAPI = WeekdaysAPI()) {
+        self.weekdaysAPI = weekdaysAPI
+    }
+
+    func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void) {
+        DispatchQueue.global().async {
+            self.weekdaysAPI.weekdayCounts(from: from, to: to) { result in
+                DispatchQueue.main.async {
+                    completion(result.mapError { _ in .invalid })
+                }
+            }
+        }
     }
 }

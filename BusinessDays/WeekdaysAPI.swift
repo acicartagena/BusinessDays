@@ -18,12 +18,11 @@ class WeekdaysAPI {
     func weekdayCounts(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
 
         var weekdayCount = 0
-        guard let adjustedDate = calendar.date(byAdding: .day, value: 1, to: fromDate) else {
+        guard var date = calendar.date(byAdding: .day, value: 1, to: fromDate) else {
             completion(.failure(.invalidDate))
             return
         }
 
-        var date = adjustedDate
         while calendar.compare(date, to: toDate, toGranularity: .day) != .orderedSame {
             if !calendar.isDateInWeekend(date) {
                 weekdayCount += 1
