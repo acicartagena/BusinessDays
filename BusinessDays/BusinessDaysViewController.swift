@@ -10,6 +10,7 @@ import UIKit
 
 protocol BusinessDaysViewModelDelegate: AnyObject {
     func update(businessDaysCount: String)
+    func showError(message: String)
 }
 
 final class BusinessDaysViewModel {
@@ -27,10 +28,28 @@ final class BusinessDaysViewModel {
 
     func update(fromDate: Date) {
         self.fromDate = fromDate
+        fetchBusinessDays()
     }
 
     func update(toDate: Date) {
         self.toDate = toDate
+        fetchBusinessDays()
+    }
+
+    private func fetchBusinessDays() {
+        guard let toDate = toDate, let fromDate = fromDate else {
+            delegate?.showError(message: "Missing to / from date")
+            return
+        }
+
+        actions.businessDaysCount(from: fromDate, to: toDate) {[weak self] result in
+            switch result {
+            case .success(let businessDays):
+                self?.delegate?.update(businessDaysCount: "\(businessDays)")
+            case .failure(let error):
+                self?.delegate?.showError(message: error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -55,6 +74,10 @@ final class BusinessDaysViewController: UIViewController {
 }
 
 extension BusinessDaysViewController: BusinessDaysViewModelDelegate {
+    func showError(message: String) {
+        print(message)
+    }
+
     func update(businessDaysCount: String) {
         daysCountLabel.text = businessDaysCount
     }
@@ -63,11 +86,11 @@ extension BusinessDaysViewController: BusinessDaysViewModelDelegate {
 extension BusinessDaysViewController: DateTextFieldDelegate {
     func datePickerDone(sender: DateTextField, date: Date) {
         if sender == toDateTextField {
-
+            viewModel.update(toDate: date)
         }
 
         if sender == fromDateTextField {
-
+            viewModel.update(fromDate: date)
         }
     }
 }
