@@ -17,16 +17,35 @@ final class BusinessDaysViewModel {
     private let actions: BusinessDaysActions
     private weak var delegate: BusinessDaysViewModelDelegate?
 
+    private var fromDate: Date?
+    private var toDate: Date?
+
     init(delegate: BusinessDaysViewModelDelegate, actions: BusinessDaysActions = BusinessDaysService()) {
         self.actions = actions
         self.delegate = delegate
+    }
+
+    func update(fromDate: Date) {
+        self.fromDate = fromDate
+    }
+
+    func update(toDate: Date) {
+        self.toDate = toDate
     }
 }
 
 final class BusinessDaysViewController: UIViewController {
     @IBOutlet private weak var daysCountLabel: UILabel!
-    @IBOutlet private weak var fromDateTextField: UITextField!
-    @IBOutlet private weak var toDateTextField: UITextField!
+    @IBOutlet private weak var fromDateTextField: DateTextField! {
+        didSet {
+            fromDateTextField.dateTextFieldDelegate = self
+        }
+    }
+    @IBOutlet private weak var toDateTextField: DateTextField! {
+        didSet {
+            toDateTextField.dateTextFieldDelegate = self
+        }
+    }
 
     lazy var viewModel: BusinessDaysViewModel = BusinessDaysViewModel(delegate: self)
 
@@ -38,5 +57,17 @@ final class BusinessDaysViewController: UIViewController {
 extension BusinessDaysViewController: BusinessDaysViewModelDelegate {
     func update(businessDaysCount: String) {
         daysCountLabel.text = businessDaysCount
+    }
+}
+
+extension BusinessDaysViewController: DateTextFieldDelegate {
+    func datePickerDone(sender: DateTextField, date: Date) {
+        if sender == toDateTextField {
+
+        }
+
+        if sender == fromDateTextField {
+
+        }
     }
 }

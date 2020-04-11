@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DateTextFieldDelegate: AnyObject {
-    func datePickerDone(date: Date)
+    func datePickerDone(sender: DateTextField, date: Date)
 }
 
 class DateTextField: UITextField {
@@ -62,7 +62,7 @@ class DateTextField: UITextField {
     @objc private func datePickerDone() {
         let chosenDate = datePicker.date
         date = chosenDate
-        dateTextFieldDelegate?.datePickerDone(date: chosenDate)
+        dateTextFieldDelegate?.datePickerDone(sender: self, date: chosenDate)
 
         text = dateFormatter.string(from: chosenDate)
         resignFirstResponder()
