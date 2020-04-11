@@ -10,7 +10,7 @@
         <!--Business Days View Controller-->
         <scene sceneID="xVM-ro-y3y">
             <objects>
-                <viewController id="q9c-iF-sWt" customClass="BusinessDaysViewController" customModule="BusinessDays" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BusinessDaysViewController" id="q9c-iF-sWt" customClass="BusinessDaysViewController" customModule="BusinessDays" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iEH-Qg-dqZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,6 +56,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VGi-ch-IHR"/>
                     </view>
+                    <connections>
+                        <outlet property="daysCountLabel" destination="kxb-L3-2Cm" id="ALI-LU-5cJ"/>
+                        <outlet property="fromDateTextField" destination="b80-v5-apU" id="8vJ-YE-ewd"/>
+                        <outlet property="toDateTextField" destination="DgO-DX-qh3" id="F8j-zY-iPG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="If7-Lf-BTN" sceneMemberID="firstResponder"/>
             </objects>

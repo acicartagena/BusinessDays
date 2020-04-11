@@ -8,17 +8,35 @@
 
 import UIKit
 
-class BusinessDaysViewModel {
+protocol BusinessDaysViewModelDelegate: AnyObject {
+    func update(businessDaysCount: String)
+}
 
-    init() {
+final class BusinessDaysViewModel {
+
+    private let actions: BusinessDaysActions
+    private weak var delegate: BusinessDaysViewModelDelegate?
+
+    init(delegate: BusinessDaysViewModelDelegate, actions: BusinessDaysActions = BusinessDaysService()) {
+        self.actions = actions
+        self.delegate = delegate
     }
 }
 
-class BusinessDaysViewController: UIViewController {
+final class BusinessDaysViewController: UIViewController {
+    @IBOutlet private weak var daysCountLabel: UILabel!
+    @IBOutlet private weak var fromDateTextField: UITextField!
+    @IBOutlet private weak var toDateTextField: UITextField!
+
+    lazy var viewModel: BusinessDaysViewModel = BusinessDaysViewModel(delegate: self)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 }
 
+extension BusinessDaysViewController: BusinessDaysViewModelDelegate {
+    func update(businessDaysCount: String) {
+        daysCountLabel.text = businessDaysCount
+    }
+}
