@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A17244145FC00890A29 /* AppDelegate.swift */; };
 		352C0A1A244145FC00890A29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A19244145FC00890A29 /* SceneDelegate.swift */; };
-		352C0A1C244145FC00890A29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A1B244145FC00890A29 /* ViewController.swift */; };
 		352C0A1F244145FC00890A29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A1D244145FC00890A29 /* Main.storyboard */; };
 		352C0A21244145FD00890A29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A20244145FD00890A29 /* Assets.xcassets */; };
 		352C0A24244145FD00890A29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A22244145FD00890A29 /* LaunchScreen.storyboard */; };
+		352C0A2C2441463100890A29 /* home assigment for iOS dev (1).pdf in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A2B2441463000890A29 /* home assigment for iOS dev (1).pdf */; };
+		352C0A2E2441466200890A29 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 352C0A2D2441466200890A29 /* README.md */; };
+		352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A302441468F00890A29 /* BusinessDaysViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		352C0A14244145FC00890A29 /* BusinessDays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessDays.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		352C0A17244145FC00890A29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		352C0A19244145FC00890A29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		352C0A1B244145FC00890A29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		352C0A1E244145FC00890A29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		352C0A20244145FD00890A29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		352C0A23244145FD00890A29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		352C0A25244145FD00890A29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		352C0A2B2441463000890A29 /* home assigment for iOS dev (1).pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "home assigment for iOS dev (1).pdf"; sourceTree = "<group>"; };
+		352C0A2D2441466200890A29 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		352C0A302441468F00890A29 /* BusinessDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		352C0A0B244145FC00890A29 = {
 			isa = PBXGroup;
 			children = (
+				352C0A2D2441466200890A29 /* README.md */,
+				352C0A2B2441463000890A29 /* home assigment for iOS dev (1).pdf */,
 				352C0A16244145FC00890A29 /* BusinessDays */,
 				352C0A15244145FC00890A29 /* Products */,
 			);
@@ -58,7 +64,7 @@
 			children = (
 				352C0A17244145FC00890A29 /* AppDelegate.swift */,
 				352C0A19244145FC00890A29 /* SceneDelegate.swift */,
-				352C0A1B244145FC00890A29 /* ViewController.swift */,
+				352C0A302441468F00890A29 /* BusinessDaysViewController.swift */,
 				352C0A1D244145FC00890A29 /* Main.storyboard */,
 				352C0A20244145FD00890A29 /* Assets.xcassets */,
 				352C0A22244145FD00890A29 /* LaunchScreen.storyboard */,
@@ -126,6 +132,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				352C0A24244145FD00890A29 /* LaunchScreen.storyboard in Resources */,
+				352C0A2C2441463100890A29 /* home assigment for iOS dev (1).pdf in Resources */,
+				352C0A2E2441466200890A29 /* README.md in Resources */,
 				352C0A21244145FD00890A29 /* Assets.xcassets in Resources */,
 				352C0A1F244145FC00890A29 /* Main.storyboard in Resources */,
 			);
@@ -138,7 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352C0A1C244145FC00890A29 /* ViewController.swift in Sources */,
+				352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */,
 				352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */,
 				352C0A1A244145FC00890A29 /* SceneDelegate.swift in Sources */,
 			);
