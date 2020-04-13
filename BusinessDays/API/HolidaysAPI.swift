@@ -29,6 +29,15 @@ class LoopDaysHolidaysEngine : HolidaysAPI {
     }
 
     func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void) {
+        guard calendar.compare(fromDate, to: toDate, toGranularity: .day) != .orderedSame else {
+            completion(.success(0))
+            return
+        }
+        guard calendar.compare(fromDate, to: toDate, toGranularity: .day) == .orderedAscending else {
+            completion(.failure(.invalidDate))
+            return
+        }
+        
         let fromDateComponents = calendar.dateComponents([.year], from: fromDate)
         let toDateComponents = calendar.dateComponents([.year], from: toDate)
         guard let fromYear = fromDateComponents.year,
