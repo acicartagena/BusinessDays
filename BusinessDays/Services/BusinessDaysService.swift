@@ -25,7 +25,7 @@ class BusinessDaysService: BusinessDaysActions {
     }
 
     func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void) {
-        DispatchQueue.global().async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.weekdaysAPI.weekdayCounts(from: from, to: to) { result in
                 DispatchQueue.main.async {
                     completion(result.mapError { _ in .invalid })
