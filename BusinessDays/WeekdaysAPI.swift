@@ -17,7 +17,11 @@ protocol WeekdaysAPI {
 }
 
 class CalendarFrameworkWeekdaysEngine: WeekdaysAPI {
-    let calendar = Calendar(identifier: .gregorian)
+    let calendar: Calendar
+
+    init(calendar: Calendar = Environment.shared.calendar) {
+        self.calendar = calendar
+    }
 
     func weekdaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
         guard calendar.compare(fromDate, to: toDate, toGranularity: .day) != .orderedSame else {

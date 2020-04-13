@@ -16,6 +16,14 @@ protocol HolidaysAPI {
     func holidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void)
 }
 
-class HolidaysAPIEngine {
-    
+class HolidaysAPIEngine : HolidaysAPI {
+    let calendar: Calendar
+
+    init(calendar: Calendar = Environment.shared.calendar) {
+        self.calendar = calendar
+    }
+
+    func holidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
+        
+    }
 }

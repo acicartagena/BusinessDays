@@ -22,6 +22,7 @@
 		35A440F3244433F400A4F3B2 /* BusinessDaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A440F2244433F400A4F3B2 /* BusinessDaysTests.swift */; };
 		35A440FD2444347C00A4F3B2 /* WeekdaysAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A440FC2444347C00A4F3B2 /* WeekdaysAPITests.swift */; };
 		35A440FF24443F3400A4F3B2 /* HolidaysAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A440FE24443F3400A4F3B2 /* HolidaysAPI.swift */; };
+		35A441012444402E00A4F3B2 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441002444402E00A4F3B2 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		35A440F4244433F400A4F3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35A440FC2444347C00A4F3B2 /* WeekdaysAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysAPITests.swift; sourceTree = "<group>"; };
 		35A440FE24443F3400A4F3B2 /* HolidaysAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysAPI.swift; sourceTree = "<group>"; };
+		35A441002444402E00A4F3B2 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		352C0A16244145FC00890A29 /* BusinessDays */ = {
 			isa = PBXGroup;
 			children = (
+				35A441002444402E00A4F3B2 /* Environment.swift */,
 				352C0A17244145FC00890A29 /* AppDelegate.swift */,
 				352C0A19244145FC00890A29 /* SceneDelegate.swift */,
 				352C0A3924417BD200890A29 /* WeekdaysAPI.swift */,
@@ -246,6 +249,7 @@
 				352C0A3A24417BD200890A29 /* WeekdaysAPI.swift in Sources */,
 				352C0A3C2441F21E00890A29 /* BusinessDaysViewModel.swift in Sources */,
 				35A440FF24443F3400A4F3B2 /* HolidaysAPI.swift in Sources */,
+				35A441012444402E00A4F3B2 /* Environment.swift in Sources */,
 				352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */,
 				352C0A3624414E4C00890A29 /* DateTextField.swift in Sources */,
 				352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */,

@@ -10,7 +10,7 @@ import XCTest
 @testable import BusinessDays
 
 class WeekdaysAPITests: XCTestCase {
-    let calendar = Calendar(identifier: .gregorian)
+    let calendar = Environment.shared.calendar
     var subject: WeekdaysAPI!
 
     override func setUp() {
