@@ -24,6 +24,10 @@
 		35A441232444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441222444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift */; };
 		35A441812444B2D000A4F3B2 /* BusinessDaysAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A441802444B2D000A4F3B2 /* BusinessDaysAPI.framework */; };
 		35A441822444B2D000A4F3B2 /* BusinessDaysAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35A441802444B2D000A4F3B2 /* BusinessDaysAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		35A4418B2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4418A2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift */; };
+		35A4418D2444B7C100A4F3B2 /* BusinessDaysError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4418C2444B7C100A4F3B2 /* BusinessDaysError.swift */; };
+		35A4418F2444B8A600A4F3B2 /* HolidaysAPIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4418E2444B8A600A4F3B2 /* HolidaysAPIStub.swift */; };
+		35A441912444B8EC00A4F3B2 /* WeekdaysAPIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441902444B8EC00A4F3B2 /* WeekdaysAPIStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		35A441202444AFAD00A4F3B2 /* BusinessDaysServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysServiceTests.swift; sourceTree = "<group>"; };
 		35A441222444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewModelTests.swift; sourceTree = "<group>"; };
 		35A441802444B2D000A4F3B2 /* BusinessDaysAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BusinessDaysAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35A4418A2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysServiceStub.swift; sourceTree = "<group>"; };
+		35A4418C2444B7C100A4F3B2 /* BusinessDaysError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysError.swift; sourceTree = "<group>"; };
+		35A4418E2444B8A600A4F3B2 /* HolidaysAPIStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysAPIStub.swift; sourceTree = "<group>"; };
+		35A441902444B8EC00A4F3B2 /* WeekdaysAPIStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysAPIStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				352C0A33244147E400890A29 /* BusinessDaysService.swift */,
+				35A4418C2444B7C100A4F3B2 /* BusinessDaysError.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 		35A440F1244433F400A4F3B2 /* BusinessDaysTests */ = {
 			isa = PBXGroup;
 			children = (
+				35A441922444B93800A4F3B2 /* Test Doubles */,
 				35A441202444AFAD00A4F3B2 /* BusinessDaysServiceTests.swift */,
 				35A441222444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift */,
 				35A440F4244433F400A4F3B2 /* Info.plist */,
@@ -173,6 +183,16 @@
 				35A441802444B2D000A4F3B2 /* BusinessDaysAPI.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		35A441922444B93800A4F3B2 /* Test Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				35A4418A2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift */,
+				35A4418E2444B8A600A4F3B2 /* HolidaysAPIStub.swift */,
+				35A441902444B8EC00A4F3B2 /* WeekdaysAPIStub.swift */,
+			);
+			path = "Test Doubles";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */,
+				35A4418D2444B7C100A4F3B2 /* BusinessDaysError.swift in Sources */,
 				352C0A3C2441F21E00890A29 /* BusinessDaysViewModel.swift in Sources */,
 				35A441012444402E00A4F3B2 /* Environment.swift in Sources */,
 				352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */,
@@ -295,7 +316,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				35A441212444AFAD00A4F3B2 /* BusinessDaysServiceTests.swift in Sources */,
+				35A441912444B8EC00A4F3B2 /* WeekdaysAPIStub.swift in Sources */,
+				35A4418F2444B8A600A4F3B2 /* HolidaysAPIStub.swift in Sources */,
 				35A441232444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift in Sources */,
+				35A4418B2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

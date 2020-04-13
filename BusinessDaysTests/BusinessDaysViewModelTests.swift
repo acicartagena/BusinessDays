@@ -1,10 +1,4 @@
-//
-//  BusinessDaysViewModelTests.swift
-//  BusinessDaysTests
-//
-//  Created by Angela Cartagena on 14/4/20.
 //  Copyright © 2020 ACartagena. All rights reserved.
-//
 
 import XCTest
 
