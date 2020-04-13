@@ -18,7 +18,19 @@
 		352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A33244147E400890A29 /* BusinessDaysService.swift */; };
 		352C0A3624414E4C00890A29 /* DateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A3524414E4C00890A29 /* DateTextField.swift */; };
 		352C0A3A24417BD200890A29 /* WeekdaysAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A3924417BD200890A29 /* WeekdaysAPI.swift */; };
+		352C0A3C2441F21E00890A29 /* BusinessDaysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352C0A3B2441F21E00890A29 /* BusinessDaysViewModel.swift */; };
+		35A440F3244433F400A4F3B2 /* BusinessDaysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A440F2244433F400A4F3B2 /* BusinessDaysTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		35A440F5244433F400A4F3B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 352C0A0C244145FC00890A29 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 352C0A13244145FC00890A29;
+			remoteInfo = BusinessDays;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		352C0A14244145FC00890A29 /* BusinessDays.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BusinessDays.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,10 +46,21 @@
 		352C0A33244147E400890A29 /* BusinessDaysService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysService.swift; sourceTree = "<group>"; };
 		352C0A3524414E4C00890A29 /* DateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTextField.swift; sourceTree = "<group>"; };
 		352C0A3924417BD200890A29 /* WeekdaysAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysAPI.swift; sourceTree = "<group>"; };
+		352C0A3B2441F21E00890A29 /* BusinessDaysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewModel.swift; sourceTree = "<group>"; };
+		35A440F0244433F400A4F3B2 /* BusinessDaysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusinessDaysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		35A440F2244433F400A4F3B2 /* BusinessDaysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysTests.swift; sourceTree = "<group>"; };
+		35A440F4244433F400A4F3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		352C0A11244145FC00890A29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35A440ED244433F400A4F3B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -53,6 +76,7 @@
 				352C0A2D2441466200890A29 /* README.md */,
 				352C0A2B2441463000890A29 /* home assigment for iOS dev (1).pdf */,
 				352C0A16244145FC00890A29 /* BusinessDays */,
+				35A440F1244433F400A4F3B2 /* BusinessDaysTests */,
 				352C0A15244145FC00890A29 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				352C0A14244145FC00890A29 /* BusinessDays.app */,
+				35A440F0244433F400A4F3B2 /* BusinessDaysTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,6 +99,7 @@
 				352C0A3724414E5E00890A29 /* Views */,
 				352C0A3824414E6600890A29 /* Services */,
 				352C0A302441468F00890A29 /* BusinessDaysViewController.swift */,
+				352C0A3B2441F21E00890A29 /* BusinessDaysViewModel.swift */,
 				352C0A1D244145FC00890A29 /* Main.storyboard */,
 				352C0A20244145FD00890A29 /* Assets.xcassets */,
 				352C0A22244145FD00890A29 /* LaunchScreen.storyboard */,
@@ -98,6 +124,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		35A440F1244433F400A4F3B2 /* BusinessDaysTests */ = {
+			isa = PBXGroup;
+			children = (
+				35A440F2244433F400A4F3B2 /* BusinessDaysTests.swift */,
+				35A440F4244433F400A4F3B2 /* Info.plist */,
+			);
+			path = BusinessDaysTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,6 +153,24 @@
 			productReference = 352C0A14244145FC00890A29 /* BusinessDays.app */;
 			productType = "com.apple.product-type.application";
 		};
+		35A440EF244433F400A4F3B2 /* BusinessDaysTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35A440F9244433F400A4F3B2 /* Build configuration list for PBXNativeTarget "BusinessDaysTests" */;
+			buildPhases = (
+				35A440EC244433F400A4F3B2 /* Sources */,
+				35A440ED244433F400A4F3B2 /* Frameworks */,
+				35A440EE244433F400A4F3B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35A440F6244433F400A4F3B2 /* PBXTargetDependency */,
+			);
+			name = BusinessDaysTests;
+			productName = BusinessDaysTests;
+			productReference = 35A440F0244433F400A4F3B2 /* BusinessDaysTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -130,6 +183,10 @@
 				TargetAttributes = {
 					352C0A13244145FC00890A29 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					35A440EF244433F400A4F3B2 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 352C0A13244145FC00890A29;
 					};
 				};
 			};
@@ -147,6 +204,7 @@
 			projectRoot = "";
 			targets = (
 				352C0A13244145FC00890A29 /* BusinessDays */,
+				35A440EF244433F400A4F3B2 /* BusinessDaysTests */,
 			);
 		};
 /* End PBXProject section */
@@ -164,6 +222,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35A440EE244433F400A4F3B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -173,6 +238,7 @@
 			files = (
 				352C0A322441468F00890A29 /* BusinessDaysViewController.swift in Sources */,
 				352C0A3A24417BD200890A29 /* WeekdaysAPI.swift in Sources */,
+				352C0A3C2441F21E00890A29 /* BusinessDaysViewModel.swift in Sources */,
 				352C0A18244145FC00890A29 /* AppDelegate.swift in Sources */,
 				352C0A3624414E4C00890A29 /* DateTextField.swift in Sources */,
 				352C0A34244147E400890A29 /* BusinessDaysService.swift in Sources */,
@@ -180,7 +246,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		35A440EC244433F400A4F3B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35A440F3244433F400A4F3B2 /* BusinessDaysTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		35A440F6244433F400A4F3B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 352C0A13244145FC00890A29 /* BusinessDays */;
+			targetProxy = 35A440F5244433F400A4F3B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		352C0A1D244145FC00890A29 /* Main.storyboard */ = {
@@ -352,6 +434,46 @@
 			};
 			name = Release;
 		};
+		35A440F7244433F400A4F3B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VWW575E2Q5;
+				INFOPLIST_FILE = BusinessDaysTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acicartagena.BusinessDaysTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BusinessDays.app/BusinessDays";
+			};
+			name = Debug;
+		};
+		35A440F8244433F400A4F3B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VWW575E2Q5;
+				INFOPLIST_FILE = BusinessDaysTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.acicartagena.BusinessDaysTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BusinessDays.app/BusinessDays";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -369,6 +491,15 @@
 			buildConfigurations = (
 				352C0A29244145FD00890A29 /* Debug */,
 				352C0A2A244145FD00890A29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35A440F9244433F400A4F3B2 /* Build configuration list for PBXNativeTarget "BusinessDaysTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35A440F7244433F400A4F3B2 /* Debug */,
+				35A440F8244433F400A4F3B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
