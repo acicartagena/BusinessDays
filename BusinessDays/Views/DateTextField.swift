@@ -6,7 +6,7 @@ protocol DateTextFieldDelegate: AnyObject {
     func datePickerDone(sender: DateTextField, date: Date)
 }
 
-class DateTextField: UITextField {
+final class DateTextField: UITextField {
 
     private let toolbarWidth: CGFloat = UIScreen.main.bounds.width
     private let toolbarHeight: CGFloat = 44.0

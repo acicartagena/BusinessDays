@@ -2,7 +2,7 @@
 
 import Foundation
 
-class Environment {
+final class Environment {
     static let shared = Environment()
 
     private init() { }

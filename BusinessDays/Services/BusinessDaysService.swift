@@ -7,7 +7,7 @@ protocol BusinessDaysActions {
     func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void)
 }
 
-class BusinessDaysService: BusinessDaysActions {
+final class BusinessDaysService: BusinessDaysActions {
 
     let weekdaysAPI: WeekdaysAPI
     let holidaysAPI: HolidaysAPI

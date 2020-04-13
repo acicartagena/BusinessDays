@@ -24,10 +24,11 @@
 		35A441232444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441222444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift */; };
 		35A441812444B2D000A4F3B2 /* BusinessDaysAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A441802444B2D000A4F3B2 /* BusinessDaysAPI.framework */; };
 		35A441822444B2D000A4F3B2 /* BusinessDaysAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 35A441802444B2D000A4F3B2 /* BusinessDaysAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		35A4418B2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4418A2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift */; };
+		35A4418B2444B76F00A4F3B2 /* BusinessDaysActionsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4418A2444B76F00A4F3B2 /* BusinessDaysActionsStub.swift */; };
 		35A4418D2444B7C100A4F3B2 /* BusinessDaysError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4418C2444B7C100A4F3B2 /* BusinessDaysError.swift */; };
 		35A4418F2444B8A600A4F3B2 /* HolidaysAPIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4418E2444B8A600A4F3B2 /* HolidaysAPIStub.swift */; };
 		35A441912444B8EC00A4F3B2 /* WeekdaysAPIStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441902444B8EC00A4F3B2 /* WeekdaysAPIStub.swift */; };
+		35A441942444BBA000A4F3B2 /* BusinessDaysViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441932444BBA000A4F3B2 /* BusinessDaysViewModelDelegateSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,10 +77,11 @@
 		35A441202444AFAD00A4F3B2 /* BusinessDaysServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysServiceTests.swift; sourceTree = "<group>"; };
 		35A441222444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewModelTests.swift; sourceTree = "<group>"; };
 		35A441802444B2D000A4F3B2 /* BusinessDaysAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BusinessDaysAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		35A4418A2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysServiceStub.swift; sourceTree = "<group>"; };
+		35A4418A2444B76F00A4F3B2 /* BusinessDaysActionsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysActionsStub.swift; sourceTree = "<group>"; };
 		35A4418C2444B7C100A4F3B2 /* BusinessDaysError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysError.swift; sourceTree = "<group>"; };
 		35A4418E2444B8A600A4F3B2 /* HolidaysAPIStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysAPIStub.swift; sourceTree = "<group>"; };
 		35A441902444B8EC00A4F3B2 /* WeekdaysAPIStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysAPIStub.swift; sourceTree = "<group>"; };
+		35A441932444BBA000A4F3B2 /* BusinessDaysViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +151,8 @@
 		352C0A3824414E6600890A29 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				352C0A33244147E400890A29 /* BusinessDaysService.swift */,
 				35A4418C2444B7C100A4F3B2 /* BusinessDaysError.swift */,
+				352C0A33244147E400890A29 /* BusinessDaysService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -188,9 +190,10 @@
 		35A441922444B93800A4F3B2 /* Test Doubles */ = {
 			isa = PBXGroup;
 			children = (
-				35A4418A2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift */,
+				35A4418A2444B76F00A4F3B2 /* BusinessDaysActionsStub.swift */,
 				35A4418E2444B8A600A4F3B2 /* HolidaysAPIStub.swift */,
 				35A441902444B8EC00A4F3B2 /* WeekdaysAPIStub.swift */,
+				35A441932444BBA000A4F3B2 /* BusinessDaysViewModelDelegateSpy.swift */,
 			);
 			path = "Test Doubles";
 			sourceTree = "<group>";
@@ -319,7 +322,8 @@
 				35A441912444B8EC00A4F3B2 /* WeekdaysAPIStub.swift in Sources */,
 				35A4418F2444B8A600A4F3B2 /* HolidaysAPIStub.swift in Sources */,
 				35A441232444AFC000A4F3B2 /* BusinessDaysViewModelTests.swift in Sources */,
-				35A4418B2444B76F00A4F3B2 /* BusinessDaysServiceStub.swift in Sources */,
+				35A4418B2444B76F00A4F3B2 /* BusinessDaysActionsStub.swift in Sources */,
+				35A441942444BBA000A4F3B2 /* BusinessDaysViewModelDelegateSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

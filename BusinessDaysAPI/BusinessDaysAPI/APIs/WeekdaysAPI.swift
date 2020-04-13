@@ -11,7 +11,7 @@ public protocol WeekdaysAPI {
     func weekdaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void)
 }
 
-public class LoopDaysWeekdaysEngine: WeekdaysAPI {
+public final class LoopDaysWeekdaysEngine: WeekdaysAPI {
     private let calendar: Calendar
 
     public init(calendar: Calendar) {

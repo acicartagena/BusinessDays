@@ -4,6 +4,7 @@ import Foundation
 
 typealias Year = Int
 
+// weekday date component type is defined based on the gregorian calendar
 enum Weekday: Int {
     case sunday = 1
     case monday
@@ -14,6 +15,7 @@ enum Weekday: Int {
     case saturday
 }
 
+// month date component type is defined based on the gregorian calendar
 enum Month: Int {
     case january = 1
     case february

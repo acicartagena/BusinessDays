@@ -11,7 +11,7 @@ public protocol HolidaysAPI {
     func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void)
 }
 
-public class HolidaysEngine : HolidaysAPI {
+public final class HolidaysEngine : HolidaysAPI {
     private let calendar: Calendar
 
     struct DateFilter {

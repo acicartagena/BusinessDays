@@ -1,27 +1,72 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
 import XCTest
+@testable import BusinessDays
 
 class BusinessDaysViewModelTests: XCTestCase {
 
+    var subject: BusinessDaysViewModel!
+    var delegateSpy: BusinessDaysViewModelDelegateSpy!
+    var actionsStub: BusinessDaysActionsStub!
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+
+        delegateSpy = BusinessDaysViewModelDelegateSpy()
+        actionsStub = BusinessDaysActionsStub()
+        subject = BusinessDaysViewModel(delegate: delegateSpy, actions: actionsStub)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testUpdateFromDateNoToDate() {
+        let date = DateComponents(calendar: Environment.shared.calendar, year: 2020, month: 4, day: 14).date!
+
+        subject.update(fromDate: date)
+
+        XCTAssertEqual(delegateSpy.calls, [])
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testUpdateToDateNoFromDate() {
+        let date = DateComponents(calendar: Environment.shared.calendar, year: 2020, month: 4, day: 14).date!
+
+        subject.update(toDate: date)
+
+        XCTAssertEqual(delegateSpy.calls, [])
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testUpdateDatesBusinessDayCountSuccess() {
+        let toDate = DateComponents(calendar: Environment.shared.calendar, year: 2020, month: 4, day: 14).date!
+        let fromDate = DateComponents(calendar: Environment.shared.calendar, year: 2020, month: 5, day: 14).date!
+
+        actionsStub.result = .success(5)
+
+        subject.update(fromDate: fromDate)
+        subject.update(toDate: toDate)
+
+        XCTAssertEqual(delegateSpy.calls, ["update(businessDaysCount: 5)"])
+    }
+
+    func testUpdateDatesBusinessDayCountWrongDateOrderError() {
+        let toDate = DateComponents(calendar: Environment.shared.calendar, year: 2020, month: 4, day: 14).date!
+        let fromDate = DateComponents(calendar: Environment.shared.calendar, year: 2020, month: 5, day: 14).date!
+
+        actionsStub.result = .failure(.wrongDateOrder)
+
+        subject.update(fromDate: fromDate)
+        subject.update(toDate: toDate)
+
+        XCTAssertEqual(delegateSpy.calls, ["showError(message: From date should be before To date)"])
+    }
+
+    func testUpdateDatesBusinessDayCountInvalidDateError() {
+        let toDate = DateComponents(calendar: Environment.shared.calendar, year: 2020, month: 4, day: 14).date!
+        let fromDate = DateComponents(calendar: Environment.shared.calendar, year: 2020, month: 5, day: 14).date!
+
+        actionsStub.result = .failure(.invalidDate)
+
+        subject.update(fromDate: fromDate)
+        subject.update(toDate: toDate)
+
+        XCTAssertEqual(delegateSpy.calls, ["showError(message: Something went wrong with processing the dates)"])
     }
 
 }
