@@ -20,14 +20,24 @@ class CalendarFrameworkWeekdaysAPI: WeekdaysAPI {
     let calendar = Calendar(identifier: .gregorian)
 
     func weekdayCounts(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
+        guard calendar.compare(fromDate, to: toDate, toGranularity: .day) != .orderedSame else {
+            completion(.success(0))
+            return
+        }
+        guard calendar.compare(fromDate, to: toDate, toGranularity: .day) == .orderedAscending else {
+            completion(.failure(.invalidDate))
+            return
+        }
 
         var weekdayCount = 0
+
+        // from date is not included in the weekday computations
         guard var date = calendar.date(byAdding: .day, value: 1, to: fromDate) else {
             completion(.failure(.invalidDate))
             return
         }
 
-        while calendar.compare(date, to: toDate, toGranularity: .day) != .orderedSame {
+        while calendar.compare(date, to: toDate, toGranularity: .day) == .orderedAscending {
             if !calendar.isDateInWeekend(date) {
                 weekdayCount += 1
             }
