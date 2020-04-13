@@ -1,10 +1,4 @@
-//
-//  BusinessDaysService.swift
-//  BusinessDays
-//
-//  Created by Angela Cartagena on 11/4/20.
 //  Copyright © 2020 ACartagena. All rights reserved.
-//
 
 import Foundation
 
@@ -46,7 +40,7 @@ class BusinessDaysService: BusinessDaysActions {
     let weekdaysAPI: WeekdaysAPI
     let holidaysAPI: HolidaysAPI
 
-    init(weekdaysAPI: WeekdaysAPI = LoopDaysWeekdaysEngine(), holidaysAPI: HolidaysAPI = LoopDaysHolidaysEngine()) {
+    init(weekdaysAPI: WeekdaysAPI = LoopDaysWeekdaysEngine(), holidaysAPI: HolidaysAPI = HolidaysEngine()) {
         self.weekdaysAPI = weekdaysAPI
         self.holidaysAPI = holidaysAPI
     }

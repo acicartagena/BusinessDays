@@ -1,20 +1,14 @@
-//
-//  HolidaysAPITests.swift
-//  BusinessDaysAPITests
-//
-//  Created by Angela Cartagena on 13/4/20.
 //  Copyright © 2020 ACartagena. All rights reserved.
-//
 
 import XCTest
 @testable import BusinessDays
 class HolidaysAPITests: XCTestCase {
 
     let calendar = Environment.shared.calendar
-    var subject: LoopDaysHolidaysEngine!
+    var subject: HolidaysEngine!
 
     override func setUp() {
-        subject = LoopDaysHolidaysEngine()
+        subject = HolidaysEngine()
     }
 
     func testWeekdayHolidaysForYear() {
@@ -95,7 +89,7 @@ class HolidaysAPITests: XCTestCase {
             DateComponents(calendar: calendar, year: year, month: 12, day: 27).date!
         ]
 
-        let filter = LoopDaysHolidaysEngine.DateFilter(fromDate: fromDate, toDate: toDate)
+        let filter = HolidaysEngine.DateFilter(fromDate: fromDate, toDate: toDate)
         let dates = subject.weekdayHolidays(for: year, with: filter)
 
         XCTAssertEqual(dates, expectedDates)

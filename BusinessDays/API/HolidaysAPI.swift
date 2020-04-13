@@ -1,10 +1,4 @@
-//
-//  HolidaysAPI.swift
-//  BusinessDays
-//
-//  Created by Angela Cartagena on 13/4/20.
 //  Copyright © 2020 ACartagena. All rights reserved.
-//
 
 import Foundation
 
@@ -17,7 +11,7 @@ protocol HolidaysAPI {
     func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void)
 }
 
-class LoopDaysHolidaysEngine : HolidaysAPI {
+class HolidaysEngine : HolidaysAPI {
     let calendar: Calendar
 
     struct DateFilter {

@@ -1,10 +1,4 @@
-/* 
-  Localizable.strings
-  BusinessDays
-
-  Created by Angela Cartagena on 14/4/20.
-  Copyright © 2020 ACartagena. All rights reserved.
-*/
+//  Copyright © 2020 ACartagena. All rights reserved.
 
 // Error pop up title
 "error.title" = "Error";
