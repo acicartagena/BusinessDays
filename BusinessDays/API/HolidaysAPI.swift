@@ -45,25 +45,34 @@ class LoopDaysHolidaysEngine : HolidaysAPI {
                 holidayDates.append(date)
 
             case let .sameDateOrNextWeekday(holidayDate):
-                guard let date = holidayDate.date(calendar: calendar, year: year) else { continue }
-                guard calendar.isDateInWeekend(date) else {
-                    holidayDates.append(date)
-                    continue
-                }
-
-                var nextDate: Date = date
-
-                while calendar.isDateInWeekend(nextDate) ||
-                    holidayDates.contains { calendar.isDate($0, inSameDayAs: nextDate) } {
-                    guard let next = calendar.date(byAdding: .day, value: 1, to: nextDate) else { break }
-                    nextDate = next
-                }
-
-                if calendar.compare(date, to: nextDate, toGranularity: .day) == .orderedAscending {
-                    holidayDates.append(nextDate)
-                }
+                guard let date = holidayDate.date(calendar: calendar, year: year),
+                let holidayDate = searchForNextWeekday(for: date, holidayDates: holidayDates) else { continue }
+                holidayDates.append(holidayDate)
             }
         }
         completion(.success(holidayDates))
+    }
+
+    private func searchForNextWeekday(for date: Date, holidayDates: [Date]) -> Date? {
+        func continueSearching(date: Date) -> Bool {
+            calendar.isDateInWeekend(date) ||
+            holidayDates.contains(where: { calendar.isDate($0, inSameDayAs: date) })
+        }
+
+        guard continueSearching(date: date) else {
+            return date
+        }
+
+        var nextDate: Date = date
+        while continueSearching(date: nextDate) {
+            guard let next = calendar.date(byAdding: .day, value: 1, to: nextDate) else { break }
+            nextDate = next
+        }
+
+        if calendar.compare(date, to: nextDate, toGranularity: .day) == .orderedAscending {
+            return nextDate
+        }
+
+        return nil
     }
 }
