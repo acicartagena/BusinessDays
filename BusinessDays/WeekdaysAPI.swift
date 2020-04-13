@@ -12,7 +12,11 @@ enum WeekdaysAPIError: Error {
     case invalidDate
 }
 
-class WeekdaysAPI {
+protocol WeekdaysAPI {
+    func weekdayCounts(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void)
+}
+
+class CalendarFrameworkWeekdaysAPI: WeekdaysAPI {
     let calendar = Calendar(identifier: .gregorian)
 
     func weekdayCounts(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
