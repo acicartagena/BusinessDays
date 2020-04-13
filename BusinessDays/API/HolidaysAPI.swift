@@ -14,6 +14,7 @@ enum HolidaysAPIError: Error {
 
 protocol HolidaysAPI {
     func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void)
+    func weekdayHolidays(for year: Year, completion: (Result<[Date], HolidaysAPIError>) -> Void)
 }
 
 class LoopDaysHolidaysEngine : HolidaysAPI {
@@ -29,37 +30,35 @@ class LoopDaysHolidaysEngine : HolidaysAPI {
 
     func weekdayHolidays(for year: Year, completion: (Result<[Date], HolidaysAPIError>) -> Void) {
         var holidayDates: [Date] = []
-        let allHolidays: [HolidayType] = Holiday.allCases.map { $0.holidayType }
+        let allHolidays: [HolidayType] = NSWHoliday.allCases.map { $0.holidayType }
 
         for holiday in allHolidays {
             switch holiday {
             case let .sameDate(holidayDate):
                 guard let date = holidayDate.date(calendar: calendar, year: year),
                     !calendar.isDateInWeekend(date) else { continue }
-                holidays.append(date)
+                holidayDates.append(date)
             case let .sameDateOrNextWeekday(holidayDate):
                 guard let date = holidayDate.date(calendar: calendar, year: year) else { continue }
                 if !calendar.isDateInWeekend(date) {
-                    holidays.append(date)
+                    holidayDates.append(date)
                 } else {
-                    var nextDate = date
-                    var dateFound = false
+                    var nextDate: Date = date
 
-                    while !dateFound {
-                        if calendar.isDateInWeekend(nextDate) ||
-                            holidayDates.filter { calendar.compare($0, to: nextDate, toGranularity: .day) == .orderedSame }.count > 0 {
-                            nextDate = calendar.date(byAdding: .day, value: 1, to: date)
-                            continue
-                        } else {
-                            dateFound = true
-                            holidays.append(nextDate)
-                        }
+                    while calendar.isDateInWeekend(nextDate) ||
+                        holidayDates.contains { calendar.isDate($0, inSameDayAs: nextDate) } {
+                        guard let next = calendar.date(byAdding: .day, value: 1, to: nextDate) else { break }
+                        nextDate = next
+                    }
+
+                    if calendar.compare(date, to: nextDate, toGranularity: .day) == .orderedAscending {
+                        holidayDates.append(date)
                     }
                 }
             case let .dayInAMonth(holidayDayInMonth):
                 guard let date = holidayDayInMonth.date(calendar: calendar, year: year),
                     !calendar.isDateInWeekend(date) else { continue }
-                holidays.append(date)
+                holidayDates.append(date)
             }
         }
         completion(.success(holidayDates))

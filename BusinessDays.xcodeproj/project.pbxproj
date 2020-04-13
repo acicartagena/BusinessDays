@@ -24,6 +24,7 @@
 		35A4410324445CA500A4F3B2 /* Holiday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4410224445CA500A4F3B2 /* Holiday.swift */; };
 		35A4410D244469AA00A4F3B2 /* BusinessDaysAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4410C244469AA00A4F3B2 /* BusinessDaysAPITests.swift */; };
 		35A44114244469B900A4F3B2 /* WeekdaysAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A440FC2444347C00A4F3B2 /* WeekdaysAPITests.swift */; };
+		35A4411624446CA900A4F3B2 /* HolidaysAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4411524446CA900A4F3B2 /* HolidaysAPITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		35A4410A244469AA00A4F3B2 /* BusinessDaysAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusinessDaysAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35A4410C244469AA00A4F3B2 /* BusinessDaysAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDaysAPITests.swift; sourceTree = "<group>"; };
 		35A4410E244469AA00A4F3B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35A4411524446CA900A4F3B2 /* HolidaysAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				35A440FE24443F3400A4F3B2 /* HolidaysAPI.swift */,
 				35A4410224445CA500A4F3B2 /* Holiday.swift */,
 				35A440FC2444347C00A4F3B2 /* WeekdaysAPITests.swift */,
+				35A4411524446CA900A4F3B2 /* HolidaysAPITests.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35A4411624446CA900A4F3B2 /* HolidaysAPITests.swift in Sources */,
 				35A4410D244469AA00A4F3B2 /* BusinessDaysAPITests.swift in Sources */,
 				35A44114244469B900A4F3B2 /* WeekdaysAPITests.swift in Sources */,
 			);
