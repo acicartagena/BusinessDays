@@ -138,4 +138,52 @@ class HolidaysAPITests: XCTestCase {
         }
     }
 
+    func testSameFromAndToDates() {
+        let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
+        let toDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
+
+        subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
+            switch result {
+            case .success(let weekdays): XCTAssertEqual(weekdays, 0)
+            case .failure: XCTFail("Expecting weekday count")
+            }
+        }
+    }
+
+    func testToDateBeforeFromDate() {
+        let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
+        let toDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 29).date!
+
+        subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
+            switch result {
+            case .success: XCTFail("Expecting error")
+            case .failure(let error): XCTAssertEqual(error, HolidaysAPIError.invalidDate)
+            }
+        }
+    }
+
+    func testToDateNextDayWeekday() {
+        let fromDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 7).date!
+        let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 8).date!
+
+        subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
+            switch result {
+            case .success(let weekdays): XCTAssertEqual(weekdays, 0)
+            case .failure: XCTFail("Expecting weekday count")
+            }
+        }
+    }
+
+    func testToDateNextDayWeekend() {
+        let fromDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 11).date!
+        let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 12).date!
+
+        subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
+            switch result {
+            case .success(let weekdays): XCTAssertEqual(weekdays, 0)
+            case .failure: XCTFail("Expecting weekday count")
+            }
+        }
+    }
+
 }
