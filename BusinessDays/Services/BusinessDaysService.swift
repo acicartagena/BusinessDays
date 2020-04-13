@@ -20,7 +20,7 @@ class BusinessDaysService: BusinessDaysActions {
 
     let weekdaysAPI: WeekdaysAPI
 
-    init(weekdaysAPI: WeekdaysAPI = CalendarFrameworkWeekdaysEngine()) {
+    init(weekdaysAPI: WeekdaysAPI = LoopDaysWeekdaysEngine()) {
         self.weekdaysAPI = weekdaysAPI
     }
 

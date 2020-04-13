@@ -14,7 +14,7 @@ class WeekdaysAPITests: XCTestCase {
     var subject: WeekdaysAPI!
 
     override func setUp() {
-        subject = CalendarFrameworkWeekdaysEngine()
+        subject = LoopDaysWeekdaysEngine()
     }
 
     func testSameFromAndToDates() {
