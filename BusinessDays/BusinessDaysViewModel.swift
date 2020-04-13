@@ -8,9 +8,8 @@
 
 import Foundation
 
-protocol BusinessDaysViewModelDelegate: AnyObject {
+protocol BusinessDaysViewModelDelegate: AnyObject, DisplaysError {
     func update(businessDaysCount: String)
-    func showError(message: String)
 }
 
 final class BusinessDaysViewModel {
@@ -37,11 +36,7 @@ final class BusinessDaysViewModel {
     }
 
     private func fetchBusinessDays() {
-        guard let toDate = toDate, let fromDate = fromDate else {
-            delegate?.showError(message: "Missing to / from date")
-            return
-        }
-
+        guard let toDate = toDate, let fromDate = fromDate else { return }
         actions.businessDaysCount(from: fromDate, to: toDate) {[weak self] result in
             switch result {
             case .success(let businessDays):

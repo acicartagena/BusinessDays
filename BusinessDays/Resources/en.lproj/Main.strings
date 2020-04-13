@@ -1,0 +1,12 @@
+
+/* Class = "UITextField"; placeholder = "To"; ObjectID = "DgO-DX-qh3"; */
+"DgO-DX-qh3.placeholder" = "To";
+
+/* Class = "UITextField"; placeholder = "From"; ObjectID = "b80-v5-apU"; */
+"b80-v5-apU.placeholder" = "From";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "kxb-L3-2Cm"; */
+"kxb-L3-2Cm.text" = "0";
+
+/* Class = "UILabel"; text = "Business Days"; ObjectID = "syR-Ra-mLL"; */
+"syR-Ra-mLL.text" = "Business Days";

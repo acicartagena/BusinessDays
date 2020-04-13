@@ -53,9 +53,14 @@ class DateTextField: UITextField {
 
         inputAccessoryView = datePickerToolbar
         inputView = datePicker
+
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
     }
 
     @objc private func datePickerCancel() {
+        if let previousDate = date {
+            text = dateFormatter.string(from: previousDate)
+        }
         resignFirstResponder()
     }
 
@@ -66,6 +71,11 @@ class DateTextField: UITextField {
 
         text = dateFormatter.string(from: chosenDate)
         resignFirstResponder()
+    }
+
+    @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
+        let date = datePicker.date
+        text = dateFormatter.string(from: date)
     }
 
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {

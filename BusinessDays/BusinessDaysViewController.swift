@@ -29,10 +29,6 @@ final class BusinessDaysViewController: UIViewController {
 }
 
 extension BusinessDaysViewController: BusinessDaysViewModelDelegate {
-    func showError(message: String) {
-        print(message)
-    }
-
     func update(businessDaysCount: String) {
         daysCountLabel.text = businessDaysCount
     }

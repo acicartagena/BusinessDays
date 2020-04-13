@@ -11,6 +11,14 @@ import Foundation
 enum BusinessDaysError: Error {
     case invalidDate
     case wrongDateOrder
+
+    var localizedDescription: String {
+        switch self {
+        case .invalidDate: return NSLocalizedString("error.message.invalid", comment: "")
+        case .wrongDateOrder: return NSLocalizedString("error.message.ordering", comment: "")
+        }
+    }
+
 }
 
 extension BusinessDaysError {

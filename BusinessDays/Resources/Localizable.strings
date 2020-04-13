@@ -1,0 +1,28 @@
+/* 
+  Localizable.strings
+  BusinessDays
+
+  Created by Angela Cartagena on 14/4/20.
+  Copyright © 2020 ACartagena. All rights reserved.
+*/
+
+// Error pop up title
+"error.title" = "Error";
+
+// Dismiss error button title
+"error.dismiss" = "Ok";
+
+// Invalid dates error message
+"error.message.invalid" = "Something went wrong with processing the dates";
+
+// Wrong order of To and From dates
+"error.message.ordering" = "From date should be before To date";
+
+// Business days title
+"business.days" = "Business days";
+
+// Starting date placeholder
+"date.starting" = "From";
+
+// End date placeholder
+"date.ending" = "To";
