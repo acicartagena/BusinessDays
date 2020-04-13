@@ -20,13 +20,13 @@ class BusinessDaysService: BusinessDaysActions {
 
     let weekdaysAPI: WeekdaysAPI
 
-    init(weekdaysAPI: WeekdaysAPI = CalendarFrameworkWeekdaysAPI()) {
+    init(weekdaysAPI: WeekdaysAPI = CalendarFrameworkWeekdaysEngine()) {
         self.weekdaysAPI = weekdaysAPI
     }
 
     func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.weekdaysAPI.weekdayCounts(from: from, to: to) { result in
+            self.weekdaysAPI.weekdaysCount(from: from, to: to) { result in
                 DispatchQueue.main.async {
                     completion(result.mapError { _ in .invalid })
                 }

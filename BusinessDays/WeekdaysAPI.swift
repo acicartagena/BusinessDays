@@ -13,13 +13,13 @@ enum WeekdaysAPIError: Error {
 }
 
 protocol WeekdaysAPI {
-    func weekdayCounts(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void)
+    func weekdaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void)
 }
 
-class CalendarFrameworkWeekdaysAPI: WeekdaysAPI {
+class CalendarFrameworkWeekdaysEngine: WeekdaysAPI {
     let calendar = Calendar(identifier: .gregorian)
 
-    func weekdayCounts(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
+    func weekdaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
         guard calendar.compare(fromDate, to: toDate, toGranularity: .day) != .orderedSame else {
             completion(.success(0))
             return

@@ -14,14 +14,14 @@ class WeekdaysAPITests: XCTestCase {
     var subject: WeekdaysAPI!
 
     override func setUp() {
-        subject = CalendarFrameworkWeekdaysAPI()
+        subject = CalendarFrameworkWeekdaysEngine()
     }
 
     func testSameFromAndToDates() {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 0)
             case .failure: XCTFail("Expecting weekday count")
@@ -33,7 +33,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 29).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success: XCTFail("Expecting error")
             case .failure(let error): XCTAssertEqual(error, WeekdaysAPIError.invalidDate)
@@ -45,7 +45,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 7).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 8).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 0)
             case .failure: XCTFail("Expecting weekday count")
@@ -57,7 +57,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 11).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 12).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 0)
             case .failure: XCTFail("Expecting weekday count")
@@ -70,7 +70,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 3).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 3)
             case .failure: XCTFail("Expecting weekday count")
@@ -82,7 +82,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 4).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 4)
             case .failure: XCTFail("Expecting weekday count")
@@ -94,7 +94,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 5).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 4)
             case .failure: XCTFail("Expecting weekday count")
@@ -106,7 +106,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 28).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 3).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 4)
             case .failure: XCTFail("Expecting weekday count")
@@ -118,7 +118,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 28).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 4).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 5)
             case .failure: XCTFail("Expecting weekday count")
@@ -130,7 +130,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 28).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 5).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 5)
             case .failure: XCTFail("Expecting weekday count")
@@ -142,7 +142,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 29).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 3).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 4)
             case .failure: XCTFail("Expecting weekday count")
@@ -154,7 +154,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 29).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 4).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 5)
             case .failure: XCTFail("Expecting weekday count")
@@ -166,7 +166,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 29).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 5).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 5)
             case .failure: XCTFail("Expecting weekday count")
@@ -179,7 +179,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 17).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 13)
             case .failure: XCTFail("Expecting weekday count")
@@ -191,7 +191,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 18).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 14)
             case .failure: XCTFail("Expecting weekday count")
@@ -203,7 +203,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 30).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 19).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 14)
             case .failure: XCTFail("Expecting weekday count")
@@ -215,7 +215,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 28).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 17).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 14)
             case .failure: XCTFail("Expecting weekday count")
@@ -227,7 +227,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 28).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 18).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 15)
             case .failure: XCTFail("Expecting weekday count")
@@ -239,7 +239,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 28).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 19).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 15)
             case .failure: XCTFail("Expecting weekday count")
@@ -251,7 +251,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 29).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 17).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 14)
             case .failure: XCTFail("Expecting weekday count")
@@ -263,7 +263,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 29).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 18).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 15)
             case .failure: XCTFail("Expecting weekday count")
@@ -275,7 +275,7 @@ class WeekdaysAPITests: XCTestCase {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 3, day: 29).date!
         let toDate = DateComponents(calendar: calendar, year: 2020, month: 4, day: 19).date!
 
-        subject.weekdayCounts(from: fromDate, to: toDate) { result in
+        subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success(let weekdays): XCTAssertEqual(weekdays, 15)
             case .failure: XCTFail("Expecting weekday count")
