@@ -9,7 +9,24 @@
 import Foundation
 
 enum BusinessDaysError: Error {
-    case invalid
+    case invalidDate
+    case wrongDateOrder
+}
+
+extension BusinessDaysError {
+    init(holidaysAPIError: HolidaysAPIError) {
+        switch holidaysAPIError {
+        case .invalidDate: self = .invalidDate
+        case .wrongDateOrder: self = .wrongDateOrder
+        }
+    }
+
+    init(weekdaysAPIError: WeekdaysAPIError) {
+        switch weekdaysAPIError {
+        case .invalidDate: self = .invalidDate
+        case .wrongDateOrder: self = .wrongDateOrder
+        }
+    }
 }
 
 protocol BusinessDaysActions {
@@ -52,10 +69,10 @@ class BusinessDaysService: BusinessDaysActions {
             case let (.success(weekdays), .success(holidays)):
                 let businessDays = weekdays - holidays
                 completion(.success(businessDays))
-            case (_, .failure):
-                completion(.failure(.invalid))
-            case (.failure, _):
-                completion(.failure(.invalid))
+            case let (.failure(error), _):
+                completion(.failure(BusinessDaysError(weekdaysAPIError: error)))
+            case let (_, .failure(error)):
+                completion(.failure(BusinessDaysError(holidaysAPIError: error)))
             }
         }
     }

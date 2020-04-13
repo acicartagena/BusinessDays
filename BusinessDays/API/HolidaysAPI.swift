@@ -10,6 +10,7 @@ import Foundation
 
 enum HolidaysAPIError: Error {
     case invalidDate
+    case wrongDateOrder
 }
 
 protocol HolidaysAPI {
@@ -34,10 +35,10 @@ class LoopDaysHolidaysEngine : HolidaysAPI {
             return
         }
         guard calendar.compare(fromDate, to: toDate, toGranularity: .day) == .orderedAscending else {
-            completion(.failure(.invalidDate))
+            completion(.failure(.wrongDateOrder))
             return
         }
-        
+
         let fromDateComponents = calendar.dateComponents([.year], from: fromDate)
         let toDateComponents = calendar.dateComponents([.year], from: toDate)
         guard let fromYear = fromDateComponents.year,

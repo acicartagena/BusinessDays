@@ -10,6 +10,7 @@ import Foundation
 
 enum WeekdaysAPIError: Error {
     case invalidDate
+    case wrongDateOrder
 }
 
 protocol WeekdaysAPI {
@@ -29,7 +30,7 @@ class LoopDaysWeekdaysEngine: WeekdaysAPI {
             return
         }
         guard calendar.compare(fromDate, to: toDate, toGranularity: .day) == .orderedAscending else {
-            completion(.failure(.invalidDate))
+            completion(.failure(.wrongDateOrder))
             return
         }
 
