@@ -1,6 +1,7 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
 import Foundation
+import BusinessDaysAPI
 
 enum BusinessDaysError: Error {
     case invalidDate
@@ -12,7 +13,6 @@ enum BusinessDaysError: Error {
         case .wrongDateOrder: return NSLocalizedString("error.message.ordering", comment: "")
         }
     }
-
 }
 
 extension BusinessDaysError {
@@ -40,7 +40,8 @@ class BusinessDaysService: BusinessDaysActions {
     let weekdaysAPI: WeekdaysAPI
     let holidaysAPI: HolidaysAPI
 
-    init(weekdaysAPI: WeekdaysAPI = LoopDaysWeekdaysEngine(), holidaysAPI: HolidaysAPI = HolidaysEngine()) {
+    init(weekdaysAPI: WeekdaysAPI = LoopDaysWeekdaysEngine(calendar: Environment.shared.calendar),
+         holidaysAPI: HolidaysAPI = HolidaysEngine(calendar: Environment.shared.calendar)) {
         self.weekdaysAPI = weekdaysAPI
         self.holidaysAPI = holidaysAPI
     }

@@ -1,14 +1,14 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
 import XCTest
-@testable import BusinessDays
+@testable import BusinessDaysAPI
 
 class WeekdaysAPITests: XCTestCase {
-    let calendar = Environment.shared.calendar
+    let calendar = Calendar(identifier: .gregorian)
     var subject: WeekdaysAPI!
 
     override func setUp() {
-        subject = LoopDaysWeekdaysEngine()
+        subject = LoopDaysWeekdaysEngine(calendar: calendar)
     }
 
     func testSameFromAndToDates() {
@@ -30,7 +30,7 @@ class WeekdaysAPITests: XCTestCase {
         subject.weekdaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success: XCTFail("Expecting error")
-            case .failure(let error): XCTAssertEqual(error, WeekdaysAPIError.invalidDate)
+            case .failure(let error): XCTAssertEqual(error, WeekdaysAPIError.wrongDateOrder)
             }
         }
     }

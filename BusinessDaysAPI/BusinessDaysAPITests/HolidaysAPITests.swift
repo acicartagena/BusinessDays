@@ -1,14 +1,15 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
 import XCTest
-@testable import BusinessDays
+@testable import BusinessDaysAPI
+
 class HolidaysAPITests: XCTestCase {
 
-    let calendar = Environment.shared.calendar
+    let calendar = Calendar(identifier: .gregorian)
     var subject: HolidaysEngine!
 
     override func setUp() {
-        subject = HolidaysEngine()
+        subject = HolidaysEngine(calendar: calendar)
     }
 
     func testWeekdayHolidaysForYear() {
@@ -151,7 +152,7 @@ class HolidaysAPITests: XCTestCase {
         subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success: XCTFail("Expecting error")
-            case .failure(let error): XCTAssertEqual(error, HolidaysAPIError.invalidDate)
+            case .failure(let error): XCTAssertEqual(error, HolidaysAPIError.wrongDateOrder)
             }
         }
     }

@@ -2,23 +2,23 @@
 
 import Foundation
 
-enum WeekdaysAPIError: Error {
+public enum WeekdaysAPIError: Error {
     case invalidDate
     case wrongDateOrder
 }
 
-protocol WeekdaysAPI {
+public protocol WeekdaysAPI {
     func weekdaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void)
 }
 
-class LoopDaysWeekdaysEngine: WeekdaysAPI {
-    let calendar: Calendar
+public class LoopDaysWeekdaysEngine: WeekdaysAPI {
+    private let calendar: Calendar
 
-    init(calendar: Calendar = Environment.shared.calendar) {
+    public init(calendar: Calendar) {
         self.calendar = calendar
     }
 
-    func weekdaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
+    public func weekdaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, WeekdaysAPIError>) -> Void) {
         guard calendar.compare(fromDate, to: toDate, toGranularity: .day) != .orderedSame else {
             completion(.success(0))
             return

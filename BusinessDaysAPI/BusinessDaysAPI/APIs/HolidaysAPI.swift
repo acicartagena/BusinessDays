@@ -2,28 +2,28 @@
 
 import Foundation
 
-enum HolidaysAPIError: Error {
+public enum HolidaysAPIError: Error {
     case invalidDate
     case wrongDateOrder
 }
 
-protocol HolidaysAPI {
+public protocol HolidaysAPI {
     func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void)
 }
 
-class HolidaysEngine : HolidaysAPI {
-    let calendar: Calendar
+public class HolidaysEngine : HolidaysAPI {
+    private let calendar: Calendar
 
     struct DateFilter {
         let fromDate: Date
         let toDate: Date
     }
 
-    init(calendar: Calendar = Environment.shared.calendar) {
+    public init(calendar: Calendar) {
         self.calendar = calendar
     }
 
-    func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void) {
+    public func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void) {
         guard calendar.compare(fromDate, to: toDate, toGranularity: .day) != .orderedSame else {
             completion(.success(0))
             return
