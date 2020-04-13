@@ -14,22 +14,54 @@ enum HolidaysAPIError: Error {
 
 protocol HolidaysAPI {
     func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void)
-    func weekdayHolidays(for year: Year, completion: (Result<[Date], HolidaysAPIError>) -> Void)
 }
 
 class LoopDaysHolidaysEngine : HolidaysAPI {
     let calendar: Calendar
+
+    struct DateFilter {
+        let fromDate: Date
+        let toDate: Date
+    }
 
     init(calendar: Calendar = Environment.shared.calendar) {
         self.calendar = calendar
     }
 
     func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void) {
-        
+        let fromDateComponents = calendar.dateComponents([.year], from: fromDate)
+        let toDateComponents = calendar.dateComponents([.year], from: toDate)
+        guard let fromYear = fromDateComponents.year,
+            let toYear = toDateComponents.year else {
+                completion(.failure(.invalidDate))
+                return
+        }
+
+        let dateFilter = DateFilter(fromDate: fromDate, toDate: toDate)
+        var allWeekdayHolidays: [Date] = []
+        for i in fromYear...toYear {
+            let weekdayHolidaysForYear = weekdayHolidays(for: i, with: dateFilter)
+            allWeekdayHolidays.append(contentsOf: weekdayHolidaysForYear)
+        }
+
+        completion(.success(allWeekdayHolidays.count))
     }
 
-    func weekdayHolidays(for year: Year, completion: (Result<[Date], HolidaysAPIError>) -> Void) {
+    func weekdayHolidays(for year: Year, with dateFilter: DateFilter? = nil) -> [Date] {
         var holidayDates: [Date] = []
+
+        func addToHolidayDates(date: Date, with dateFilter: DateFilter? = nil) {
+            guard let filter = dateFilter else {
+                holidayDates.append(date)
+                return
+            }
+
+            if calendar.compare(filter.fromDate, to: date, toGranularity: .day) == .orderedAscending &&
+                calendar.compare(date, to: filter.toDate, toGranularity: .day) == .orderedAscending {
+                holidayDates.append(date)
+            }
+        }
+
         let allHolidays: [HolidayType] = NSWHoliday.allCases.map { $0.holidayType }
 
         for holiday in allHolidays {
@@ -37,20 +69,18 @@ class LoopDaysHolidaysEngine : HolidaysAPI {
             case let .sameDate(holidayDate):
                 guard let date = holidayDate.date(calendar: calendar, year: year),
                     !calendar.isDateInWeekend(date) else { continue }
-                holidayDates.append(date)
-
+                addToHolidayDates(date: date, with: dateFilter)
             case let .dayInAMonth(holidayDayInMonth):
                 guard let date = holidayDayInMonth.date(calendar: calendar, year: year),
                     !calendar.isDateInWeekend(date) else { continue }
-                holidayDates.append(date)
-
+                addToHolidayDates(date: date, with: dateFilter)
             case let .sameDateOrNextWeekday(holidayDate):
                 guard let date = holidayDate.date(calendar: calendar, year: year),
                 let holidayDate = searchForNextWeekday(for: date, holidayDates: holidayDates) else { continue }
-                holidayDates.append(holidayDate)
+                addToHolidayDates(date: holidayDate, with: dateFilter)
             }
         }
-        completion(.success(holidayDates))
+        return holidayDates
     }
 
     private func searchForNextWeekday(for date: Date, holidayDates: [Date]) -> Date? {
