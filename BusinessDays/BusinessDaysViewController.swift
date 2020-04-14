@@ -14,6 +14,8 @@ final class BusinessDaysViewController: UIViewController {
             toDateTextField.dateTextFieldDelegate = self
         }
     }
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
 
     lazy var viewModel: BusinessDaysViewModel = BusinessDaysViewModel(delegate: self)
 
@@ -25,6 +27,11 @@ final class BusinessDaysViewController: UIViewController {
 extension BusinessDaysViewController: BusinessDaysViewModelDelegate {
     func update(businessDaysCount: String) {
         daysCountLabel.text = businessDaysCount
+    }
+
+    func updateUI(hideCountLabel: Bool, hideLoading: Bool) {
+        daysCountLabel.isHidden = hideCountLabel
+        loadingIndicator.isHidden = hideLoading
     }
 }
 

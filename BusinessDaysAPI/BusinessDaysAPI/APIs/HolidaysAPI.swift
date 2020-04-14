@@ -51,7 +51,7 @@ public final class HolidaysEngine : HolidaysAPI {
         completion(.success(allWeekdayHolidays.count))
     }
 
-    func weekdayHolidays(for year: Year, with dateFilter: DateFilter? = nil) -> [Date] {
+    func weekdayHolidays(for year: Year, with dateFilter: DateFilter? = nil, allHolidays: [HolidayType] = NSWHoliday.allCases.map { $0.holidayType }) -> [Date] {
         var holidayDates: [Date] = []
 
         func addToHolidayDates(date: Date, with dateFilter: DateFilter? = nil) {
@@ -65,8 +65,6 @@ public final class HolidaysEngine : HolidaysAPI {
                 holidayDates.append(date)
             }
         }
-
-        let allHolidays: [HolidayType] = NSWHoliday.allCases.map { $0.holidayType }
 
         for holiday in allHolidays {
             switch holiday {
@@ -93,20 +91,13 @@ public final class HolidaysEngine : HolidaysAPI {
             holidayDates.contains(where: { calendar.isDate($0, inSameDayAs: date) })
         }
 
-        guard continueSearching(date: date) else {
-            return date
-        }
+        guard continueSearching(date: date) else { return date }
 
         var nextDate: Date = date
         while continueSearching(date: nextDate) {
-            guard let next = calendar.date(byAdding: .day, value: 1, to: nextDate) else { break }
+            guard let next = calendar.date(byAdding: .day, value: 1, to: nextDate) else { return nil }
             nextDate = next
         }
-
-        if calendar.compare(date, to: nextDate, toGranularity: .day) == .orderedAscending {
-            return nextDate
-        }
-
-        return nil
+        return nextDate
     }
 }

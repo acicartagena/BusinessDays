@@ -12,9 +12,9 @@
 		35A441782444B22900A4F3B2 /* HolidaysAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441772444B22900A4F3B2 /* HolidaysAPI.swift */; };
 		35A441792444B22900A4F3B2 /* HolidayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441762444B22900A4F3B2 /* HolidayType.swift */; };
 		35A4417A2444B22900A4F3B2 /* WeekdaysAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441752444B22900A4F3B2 /* WeekdaysAPI.swift */; };
-		35A4417D2444B23700A4F3B2 /* HolidaysAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4417C2444B23700A4F3B2 /* HolidaysAPITests.swift */; };
+		35A4417D2444B23700A4F3B2 /* HolidaysEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4417C2444B23700A4F3B2 /* HolidaysEngineTests.swift */; };
 		35A4417E2444B23700A4F3B2 /* WeekdaysAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A4417B2444B23700A4F3B2 /* WeekdaysAPITests.swift */; };
-		35A441872444B3C100A4F3B2 /* NSWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441862444B3C100A4F3B2 /* NSWHoliday.swift */; };
+		35E11AFD2445438800DD1234 /* NSWHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A441862444B3C100A4F3B2 /* NSWHoliday.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		35A441762444B22900A4F3B2 /* HolidayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayType.swift; sourceTree = "<group>"; };
 		35A441772444B22900A4F3B2 /* HolidaysAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysAPI.swift; sourceTree = "<group>"; };
 		35A4417B2444B23700A4F3B2 /* WeekdaysAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysAPITests.swift; sourceTree = "<group>"; };
-		35A4417C2444B23700A4F3B2 /* HolidaysAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysAPITests.swift; sourceTree = "<group>"; };
+		35A4417C2444B23700A4F3B2 /* HolidaysEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidaysEngineTests.swift; sourceTree = "<group>"; };
 		35A441862444B3C100A4F3B2 /* NSWHoliday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWHoliday.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,7 +92,7 @@
 		35A441682444B21000A4F3B2 /* BusinessDaysAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				35A4417C2444B23700A4F3B2 /* HolidaysAPITests.swift */,
+				35A4417C2444B23700A4F3B2 /* HolidaysEngineTests.swift */,
 				35A4417B2444B23700A4F3B2 /* WeekdaysAPITests.swift */,
 				35A4416B2444B21000A4F3B2 /* Info.plist */,
 			);
@@ -227,7 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35A441792444B22900A4F3B2 /* HolidayType.swift in Sources */,
-				35A441872444B3C100A4F3B2 /* NSWHoliday.swift in Sources */,
+				35E11AFD2445438800DD1234 /* NSWHoliday.swift in Sources */,
 				35A4417A2444B22900A4F3B2 /* WeekdaysAPI.swift in Sources */,
 				35A441782444B22900A4F3B2 /* HolidaysAPI.swift in Sources */,
 			);
@@ -237,7 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35A4417D2444B23700A4F3B2 /* HolidaysAPITests.swift in Sources */,
+				35A4417D2444B23700A4F3B2 /* HolidaysEngineTests.swift in Sources */,
 				35A4417E2444B23700A4F3B2 /* WeekdaysAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

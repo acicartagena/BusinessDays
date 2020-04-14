@@ -13,4 +13,8 @@ class BusinessDaysViewModelDelegateSpy: BusinessDaysViewModelDelegate {
     func showError(message: String) {
         calls.append("showError(message: \(message))")
     }
+
+    func updateUI(hideCountLabel: Bool, hideLoading: Bool) {
+           calls.append("updateUI(hideCountLabel: \(hideCountLabel), hideLoading: \(hideLoading))")
+    }
 }

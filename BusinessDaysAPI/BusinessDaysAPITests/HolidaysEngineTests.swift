@@ -3,7 +3,7 @@
 import XCTest
 @testable import BusinessDaysAPI
 
-class HolidaysAPITests: XCTestCase {
+class HolidaysEngineTests: XCTestCase {
 
     let calendar = Calendar(identifier: .gregorian)
     var subject: HolidaysEngine!

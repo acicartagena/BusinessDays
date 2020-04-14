@@ -129,23 +129,23 @@
 				35A441002444402E00A4F3B2 /* Environment.swift */,
 				352C0A17244145FC00890A29 /* AppDelegate.swift */,
 				352C0A19244145FC00890A29 /* SceneDelegate.swift */,
-				35A441172444A7B400A4F3B2 /* UIViewController+Displays.swift */,
-				352C0A3724414E5E00890A29 /* Views */,
 				352C0A3824414E6600890A29 /* Services */,
+				352C0A3724414E5E00890A29 /* Components and Extensions */,
 				352C0A3B2441F21E00890A29 /* BusinessDaysViewModel.swift */,
 				352C0A302441468F00890A29 /* BusinessDaysViewController.swift */,
-				352C0A25244145FD00890A29 /* Info.plist */,
 				35A441192444AA6500A4F3B2 /* Resources */,
+				352C0A25244145FD00890A29 /* Info.plist */,
 			);
 			path = BusinessDays;
 			sourceTree = "<group>";
 		};
-		352C0A3724414E5E00890A29 /* Views */ = {
+		352C0A3724414E5E00890A29 /* Components and Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				352C0A3524414E4C00890A29 /* DateTextField.swift */,
+				35A441172444A7B400A4F3B2 /* UIViewController+Displays.swift */,
 			);
-			path = Views;
+			path = "Components and Extensions";
 			sourceTree = "<group>";
 		};
 		352C0A3824414E6600890A29 /* Services */ = {

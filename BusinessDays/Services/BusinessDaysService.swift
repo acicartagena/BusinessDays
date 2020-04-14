@@ -3,8 +3,10 @@
 import Foundation
 import BusinessDaysAPI
 
+typealias DaysCount = Int
+
 protocol BusinessDaysActions {
-    func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void)
+    func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<DaysCount, BusinessDaysError>) -> Void)
 }
 
 final class BusinessDaysService: BusinessDaysActions {
@@ -18,7 +20,7 @@ final class BusinessDaysService: BusinessDaysActions {
         self.holidaysAPI = holidaysAPI
     }
 
-    func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void) {
+    func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<DaysCount, BusinessDaysError>) -> Void) {
         var weekdaysCountResult: Result<Int, WeekdaysAPIError> = .success(0)
         var weekdayHolidaysCountResult: Result<Int, HolidaysAPIError> = .success(0)
         let group = DispatchGroup()

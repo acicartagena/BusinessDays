@@ -21,7 +21,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bvj-X1-Kaj">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="121.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxb-L3-2Cm">
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="SxC-yN-4Wn">
+                                                <rect key="frame" x="177" y="0.0" width="20" height="0.0"/>
+                                            </activityIndicatorView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxb-L3-2Cm">
                                                 <rect key="frame" x="162.5" y="0.0" width="49" height="95.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                                 <nil key="textColor"/>
@@ -59,6 +62,7 @@
                     <connections>
                         <outlet property="daysCountLabel" destination="kxb-L3-2Cm" id="ALI-LU-5cJ"/>
                         <outlet property="fromDateTextField" destination="b80-v5-apU" id="8vJ-YE-ewd"/>
+                        <outlet property="loadingIndicator" destination="SxC-yN-4Wn" id="W4A-zT-WEk"/>
                         <outlet property="toDateTextField" destination="DgO-DX-qh3" id="F8j-zY-iPG"/>
                     </connections>
                 </viewController>
