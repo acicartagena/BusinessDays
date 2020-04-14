@@ -1,10 +1,9 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
-import XCTest
 @testable import BusinessDays
+import XCTest
 
 class BusinessDaysViewModelTests: XCTestCase {
-
     var subject: BusinessDaysViewModel!
     var delegateSpy: BusinessDaysViewModelDelegateSpy!
     var actionsStub: BusinessDaysActionsStub!
@@ -45,7 +44,8 @@ class BusinessDaysViewModelTests: XCTestCase {
         XCTAssertEqual(delegateSpy.calls, [
             "updateUI(hideCountLabel: true, hideLoading: false)",
             "updateUI(hideCountLabel: false, hideLoading: true)",
-            "update(businessDaysCount: 5)"])
+            "update(businessDaysCount: 5)",
+        ])
     }
 
     func testUpdateDatesBusinessDayCountWrongDateOrderError() {
@@ -60,7 +60,8 @@ class BusinessDaysViewModelTests: XCTestCase {
         XCTAssertEqual(delegateSpy.calls, [
             "updateUI(hideCountLabel: true, hideLoading: false)",
             "updateUI(hideCountLabel: false, hideLoading: true)",
-            "showError(message: From date should be before To date)"])
+            "showError(message: From date should be before To date)",
+        ])
     }
 
     func testUpdateDatesBusinessDayCountInvalidDateError() {
@@ -75,7 +76,7 @@ class BusinessDaysViewModelTests: XCTestCase {
         XCTAssertEqual(delegateSpy.calls, [
             "updateUI(hideCountLabel: true, hideLoading: false)",
             "updateUI(hideCountLabel: false, hideLoading: true)",
-            "showError(message: Something went wrong with processing the dates)"])
+            "showError(message: Something went wrong with processing the dates)",
+        ])
     }
-
 }

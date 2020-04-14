@@ -1,7 +1,7 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
-import Foundation
 import BusinessDaysAPI
+import Foundation
 
 typealias DaysCount = Int
 
@@ -10,7 +10,6 @@ protocol BusinessDaysActions {
 }
 
 final class BusinessDaysService: BusinessDaysActions {
-
     let weekdaysAPI: WeekdaysAPI
     let holidaysAPI: HolidaysAPI
 

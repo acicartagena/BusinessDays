@@ -11,7 +11,7 @@ public protocol HolidaysAPI {
     func weekdayHolidaysCount(from fromDate: Date, to toDate: Date, completion: (Result<Int, HolidaysAPIError>) -> Void)
 }
 
-public final class HolidaysEngine : HolidaysAPI {
+public final class HolidaysEngine: HolidaysAPI {
     private let calendar: Calendar
 
     struct DateFilter {
@@ -37,13 +37,13 @@ public final class HolidaysEngine : HolidaysAPI {
         let toDateComponents = calendar.dateComponents([.year], from: toDate)
         guard let fromYear = fromDateComponents.year,
             let toYear = toDateComponents.year else {
-                completion(.failure(.invalidDate))
-                return
+            completion(.failure(.invalidDate))
+            return
         }
 
         let dateFilter = DateFilter(fromDate: fromDate, toDate: toDate)
         var allWeekdayHolidays: [Date] = []
-        for i in fromYear...toYear {
+        for i in fromYear ... toYear {
             let weekdayHolidaysForYear = weekdayHolidays(for: i, with: dateFilter)
             allWeekdayHolidays.append(contentsOf: weekdayHolidaysForYear)
         }
@@ -60,7 +60,7 @@ public final class HolidaysEngine : HolidaysAPI {
                 return
             }
 
-            if calendar.compare(filter.fromDate, to: date, toGranularity: .day) == .orderedAscending &&
+            if calendar.compare(filter.fromDate, to: date, toGranularity: .day) == .orderedAscending,
                 calendar.compare(date, to: filter.toDate, toGranularity: .day) == .orderedAscending {
                 holidayDates.append(date)
             }
@@ -78,7 +78,7 @@ public final class HolidaysEngine : HolidaysAPI {
                 addToHolidayDates(date: date, with: dateFilter)
             case let .sameDateOrNextWeekday(holidayDate):
                 guard let date = holidayDate.date(calendar: calendar, year: year),
-                let holidayDate = searchForNextWeekday(for: date, holidayDates: holidayDates) else { continue }
+                    let holidayDate = searchForNextWeekday(for: date, holidayDates: holidayDates) else { continue }
                 addToHolidayDates(date: holidayDate, with: dateFilter)
             }
         }
@@ -88,7 +88,7 @@ public final class HolidaysEngine : HolidaysAPI {
     private func searchForNextWeekday(for date: Date, holidayDates: [Date]) -> Date? {
         func continueSearching(date: Date) -> Bool {
             calendar.isDateInWeekend(date) ||
-            holidayDates.contains(where: { calendar.isDate($0, inSameDayAs: date) })
+                holidayDates.contains(where: { calendar.isDate($0, inSameDayAs: date) })
         }
 
         guard continueSearching(date: date) else { return date }

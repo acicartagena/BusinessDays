@@ -1,11 +1,10 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
-import XCTest
 @testable import BusinessDays
 import BusinessDaysAPI
+import XCTest
 
 class BusinessDaysServiceTests: XCTestCase {
-
     var subject: BusinessDaysService!
     var weekdaysAPIStub: WeekdaysAPIStub!
     var holidaysAPIStub: HolidaysAPIStub!
@@ -24,7 +23,7 @@ class BusinessDaysServiceTests: XCTestCase {
 
         subject.businessDaysCount(from: Date(), to: Date()) { result in
             switch result {
-            case .success(let answer): XCTAssertEqual(answer, 95)
+            case let .success(answer): XCTAssertEqual(answer, 95)
             case .failure: XCTFail("Expecting count")
             }
             expectation.fulfill()
@@ -41,7 +40,7 @@ class BusinessDaysServiceTests: XCTestCase {
         subject.businessDaysCount(from: Date(), to: Date()) { result in
             switch result {
             case .success: XCTFail("Expecting error")
-            case .failure(let error): XCTAssertEqual(error.localizedDescription, "Something went wrong with processing the dates")
+            case let .failure(error): XCTAssertEqual(error.localizedDescription, "Something went wrong with processing the dates")
             }
             expectation.fulfill()
         }
@@ -57,7 +56,7 @@ class BusinessDaysServiceTests: XCTestCase {
         subject.businessDaysCount(from: Date(), to: Date()) { result in
             switch result {
             case .success: XCTFail("Expecting error")
-            case .failure(let error): XCTAssertEqual(error.localizedDescription, "From date should be before To date")
+            case let .failure(error): XCTAssertEqual(error.localizedDescription, "From date should be before To date")
             }
             expectation.fulfill()
         }
@@ -73,7 +72,7 @@ class BusinessDaysServiceTests: XCTestCase {
         subject.businessDaysCount(from: Date(), to: Date()) { result in
             switch result {
             case .success: XCTFail("Expecting error")
-            case .failure(let error): XCTAssertEqual(error.localizedDescription, "Something went wrong with processing the dates")
+            case let .failure(error): XCTAssertEqual(error.localizedDescription, "Something went wrong with processing the dates")
             }
             expectation.fulfill()
         }

@@ -3,19 +3,20 @@
 import UIKit
 
 final class BusinessDaysViewController: UIViewController {
-    @IBOutlet private weak var daysCountLabel: UILabel!
-    @IBOutlet private weak var fromDateTextField: DateTextField! {
+    @IBOutlet private var daysCountLabel: UILabel!
+    @IBOutlet private var fromDateTextField: DateTextField! {
         didSet {
             fromDateTextField.dateTextFieldDelegate = self
         }
     }
-    @IBOutlet private weak var toDateTextField: DateTextField! {
+
+    @IBOutlet private var toDateTextField: DateTextField! {
         didSet {
             toDateTextField.dateTextFieldDelegate = self
         }
     }
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
+
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
 
     lazy var viewModel: BusinessDaysViewModel = BusinessDaysViewModel(delegate: self)
 

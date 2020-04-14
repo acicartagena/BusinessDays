@@ -1,12 +1,12 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
-import Foundation
 @testable import BusinessDays
+import Foundation
 
 class BusinessDaysActionsStub: BusinessDaysActions {
     var result: Result<Int, BusinessDaysError>!
 
-    func businessDaysCount(from: Date, to: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void) {
+    func businessDaysCount(from _: Date, to _: Date, completion: @escaping (Result<Int, BusinessDaysError>) -> Void) {
         completion(result)
     }
 }

@@ -8,7 +8,6 @@ protocol BusinessDaysViewModelDelegate: AnyObject, DisplaysError {
 }
 
 final class BusinessDaysViewModel {
-
     private let actions: BusinessDaysActions
     private weak var delegate: BusinessDaysViewModelDelegate?
 
@@ -33,12 +32,12 @@ final class BusinessDaysViewModel {
     private func fetchBusinessDays() {
         guard let toDate = toDate, let fromDate = fromDate else { return }
         delegate?.updateUI(hideCountLabel: true, hideLoading: false)
-        actions.businessDaysCount(from: fromDate, to: toDate) {[weak self] result in
+        actions.businessDaysCount(from: fromDate, to: toDate) { [weak self] result in
             guard let delegate = self?.delegate else { return }
             delegate.updateUI(hideCountLabel: false, hideLoading: true)
             switch result {
-            case .success(let businessDays): delegate.update(businessDaysCount: "\(businessDays)")
-            case .failure(let error): delegate.showError(message: error.localizedDescription)
+            case let .success(businessDays): delegate.update(businessDaysCount: "\(businessDays)")
+            case let .failure(error): delegate.showError(message: error.localizedDescription)
             }
         }
     }

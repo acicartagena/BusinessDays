@@ -1,7 +1,7 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
-import Foundation
 @testable import BusinessDays
+import Foundation
 
 class BusinessDaysViewModelDelegateSpy: BusinessDaysViewModelDelegate {
     var calls: [String] = []
@@ -15,6 +15,6 @@ class BusinessDaysViewModelDelegateSpy: BusinessDaysViewModelDelegate {
     }
 
     func updateUI(hideCountLabel: Bool, hideLoading: Bool) {
-           calls.append("updateUI(hideCountLabel: \(hideCountLabel), hideLoading: \(hideLoading))")
+        calls.append("updateUI(hideCountLabel: \(hideCountLabel), hideLoading: \(hideLoading))")
     }
 }

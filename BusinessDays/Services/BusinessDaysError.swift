@@ -1,7 +1,7 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
-import Foundation
 import BusinessDaysAPI
+import Foundation
 
 enum BusinessDaysError: Error {
     case invalidDate

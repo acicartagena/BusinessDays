@@ -7,7 +7,6 @@ protocol DateTextFieldDelegate: AnyObject {
 }
 
 final class DateTextField: UITextField {
-
     private let toolbarWidth: CGFloat = UIScreen.main.bounds.width
     private let toolbarHeight: CGFloat = 44.0
 
@@ -67,12 +66,12 @@ final class DateTextField: UITextField {
         resignFirstResponder()
     }
 
-    @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
+    @objc private func datePickerValueChanged(_: UIDatePicker) {
         let date = datePicker.date
         text = dateFormatter.string(from: date)
     }
 
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+    override func canPerformAction(_: Selector, withSender _: Any?) -> Bool {
         return enableLongPressActions
     }
 }

@@ -1,10 +1,9 @@
 //  Copyright © 2020 ACartagena. All rights reserved.
 
-import XCTest
 @testable import BusinessDaysAPI
+import XCTest
 
 class HolidaysEngineTests: XCTestCase {
-
     let calendar = Calendar(identifier: .gregorian)
     var subject: HolidaysEngine!
 
@@ -87,7 +86,7 @@ class HolidaysEngineTests: XCTestCase {
         let expectedDates: [Date] = [
             DateComponents(calendar: calendar, year: year, month: 6, day: 14).date!,
             DateComponents(calendar: calendar, year: year, month: 10, day: 4).date!,
-            DateComponents(calendar: calendar, year: year, month: 12, day: 27).date!
+            DateComponents(calendar: calendar, year: year, month: 12, day: 27).date!,
         ]
 
         let filter = HolidaysEngine.DateFilter(fromDate: fromDate, toDate: toDate)
@@ -95,7 +94,6 @@ class HolidaysEngineTests: XCTestCase {
 
         XCTAssertEqual(dates, expectedDates)
     }
-
 
     func testCountWeekdayHolidaysSpanningWholeYear() {
         let fromDate = DateComponents(calendar: calendar, year: 2020, month: 12, day: 31).date!
@@ -139,7 +137,7 @@ class HolidaysEngineTests: XCTestCase {
 
         subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
             switch result {
-            case .success(let weekdays): XCTAssertEqual(weekdays, 0)
+            case let .success(weekdays): XCTAssertEqual(weekdays, 0)
             case .failure: XCTFail("Expecting weekday count")
             }
         }
@@ -152,7 +150,7 @@ class HolidaysEngineTests: XCTestCase {
         subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
             switch result {
             case .success: XCTFail("Expecting error")
-            case .failure(let error): XCTAssertEqual(error, HolidaysAPIError.wrongDateOrder)
+            case let .failure(error): XCTAssertEqual(error, HolidaysAPIError.wrongDateOrder)
             }
         }
     }
@@ -163,7 +161,7 @@ class HolidaysEngineTests: XCTestCase {
 
         subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
             switch result {
-            case .success(let weekdays): XCTAssertEqual(weekdays, 0)
+            case let .success(weekdays): XCTAssertEqual(weekdays, 0)
             case .failure: XCTFail("Expecting weekday count")
             }
         }
@@ -175,10 +173,9 @@ class HolidaysEngineTests: XCTestCase {
 
         subject.weekdayHolidaysCount(from: fromDate, to: toDate) { result in
             switch result {
-            case .success(let weekdays): XCTAssertEqual(weekdays, 0)
+            case let .success(weekdays): XCTAssertEqual(weekdays, 0)
             case .failure: XCTFail("Expecting weekday count")
             }
         }
     }
-
 }
